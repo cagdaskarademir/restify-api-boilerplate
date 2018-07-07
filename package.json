@@ -13,6 +13,7 @@
   "dependencies": {
     "nodemon": "^1.17.5",
     "pg": "^7.4.3",
+    "reflect-metadata": "^0.1.12",
     "restify": "^7.2.1",
     "ts-node": "^7.0.0",
     "typeorm": "^0.2.7",
