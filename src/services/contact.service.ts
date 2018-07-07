@@ -13,7 +13,6 @@ export class ContactService {
     }
     public async create(contact: ContactModel): Promise<ContactModel> {
         const connection = await DatabaseProvider.getConnection();
-        console.log("Created account for -->" + contact.name)
         return await connection.getRepository(ContactModel).save(contact);
     }
 
