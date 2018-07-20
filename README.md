@@ -6,6 +6,7 @@ Software required
 * NVM (node v7 and up )
 * Text Editor
 * Install `typescript`, `typings` globally
+* POSTGRES DB running instance
 
 
 Usage
