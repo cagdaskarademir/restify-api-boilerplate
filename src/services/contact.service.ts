@@ -1,5 +1,6 @@
 import { ContactModel } from "../models/contact.model";
 import { DatabaseProvider } from "../server/database";
+import { DeleteResult } from "typeorm";
 
 export class ContactService {
     public async getContact(id: number): Promise<ContactModel> {
@@ -18,7 +19,7 @@ export class ContactService {
 
     public async update(contact: ContactModel): Promise<ContactModel> {
         const connection = await DatabaseProvider.getConnection();
-        let entity = await connection.getRepository(ContactModel).findOne(contact.id);
+        const entity = await connection.getRepository(ContactModel).findOne(contact.id);
         entity.name = contact.name;
         entity.contactNo = contact.contactNo;
         entity.emailAddress = contact.emailAddress;
@@ -28,10 +29,12 @@ export class ContactService {
 
     /**
      * TODO : check the typeORM API
-     * @param id 
+     * @param id
      */
-    public async delete(id: Number): Promise<void> {
-
+    public async delete(id: number): Promise<DeleteResult> {
+        const connection = await DatabaseProvider.getConnection();
+        const entity = await connection.getRepository(ContactModel).findOne(id);
+        return await connection.getRepository(ContactModel).delete(entity);
     }
 }
 

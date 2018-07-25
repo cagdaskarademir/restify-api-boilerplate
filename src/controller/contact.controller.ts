@@ -1,16 +1,16 @@
-import { Controllers } from "./controller";
-import { HttpServer } from "../server/httpServer";
 import { Request, Response } from "restify";
+import { IHttpServer } from "../server/httpServer";
 import { ContactService, contactService } from "../services/contact.service";
+import { IControllers } from "./controller";
 
-export class ContactController implements Controllers {
-    public initialize(httpServer: HttpServer): void {
-        httpServer.get('/contact', this.list.bind(this));
-        httpServer.get('/contact/:id', this.getContactById.bind(this));
+export class ContactController implements IControllers {
+    public initialize(httpServer: IHttpServer): void {
+        httpServer.get("/contact", this.list.bind(this));
+        httpServer.get("/contact/:id", this.getContactById.bind(this));
 
-        httpServer.post('/contact', this.create.bind(this));
-        httpServer.put('/contact', this.update.bind(this));
-        httpServer.delete('/contact', this.delete.bind(this));
+        httpServer.post("/contact", this.create.bind(this));
+        httpServer.put("/contact", this.update.bind(this));
+        httpServer.delete("/contact", this.delete.bind(this));
     }
 
     public async list(req: Request, res: Response): Promise<void> {
@@ -29,6 +29,7 @@ export class ContactController implements Controllers {
         res.send(contact ? 200 : 404, contact);
     }
     public async delete(req: Request, res: Response): Promise<void> {
+        // TODO: check the typeORM API
     }
 
 }

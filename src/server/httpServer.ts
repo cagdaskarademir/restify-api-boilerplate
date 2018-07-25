@@ -1,8 +1,8 @@
 import { RequestHandler } from "restify";
 
-export interface HttpServer {
-    get(url: String, handler: RequestHandler): void;
-    put(url: String, handler: RequestHandler): void;
-    post(url: String, handler: RequestHandler): void;
-    delete(url: String, handler: RequestHandler): void;
+export interface IHttpServer {
+    get(url: string, handler: RequestHandler): void;
+    put(url: string, handler: RequestHandler): void;
+    post(url: string, handler: RequestHandler): void;
+    delete(url: string, handler: RequestHandler): void;
 }

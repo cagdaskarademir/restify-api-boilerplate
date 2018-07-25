@@ -1,8 +1,8 @@
 import { Connection, createConnection } from "typeorm";
 import { ContactModel } from "../models/contact.model";
 
-export interface DatabaseConfiguration {
-    type: 'postgres';
+export interface IDatabaseConfiguration {
+    type: "postgres";
     host: string;
     port: number;
     username: string;
@@ -13,12 +13,13 @@ export interface DatabaseConfiguration {
 
 export class DatabaseProvider {
     private static connection: Connection;
-    private static configuration: DatabaseConfiguration;
-    public static configure(config: DatabaseConfiguration): void {
+    private static configuration: IDatabaseConfiguration;
+
+    public static configure(config: IDatabaseConfiguration): void { // tslint:disable-line
         DatabaseProvider.configuration = config;
     }
 
-    public static async getConnection(): Promise<Connection> {
+    public static async getConnection(): Promise<Connection> { // tslint:disable-line
         if (DatabaseProvider.connection) {
             return DatabaseProvider.connection;
         }
@@ -28,10 +29,10 @@ export class DatabaseProvider {
         DatabaseProvider.connection = await createConnection({
             type, host, port, username, password, database,
             extra: {
-                ssl
+                ssl,
             },
             entities: [ContactModel],
-            synchronize: true
+            synchronize: true,
         });
 
         return DatabaseProvider.connection;

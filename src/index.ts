@@ -1,15 +1,16 @@
-import 'reflect-metadata';
-import { ApiServer } from './server';
+import "reflect-metadata";
+import { ApiServer } from "./server";
 import { DatabaseProvider } from "./server/database";
 
 DatabaseProvider.configure({
-    type: "postgres",
     database: "user_db",
-    username: "admin",
-    password: "nimda",
     host: "192.168.99.100",
+    password: "nimda",
     port: 5432,
-    ssl: false
+    ssl: false,
+    type: "postgres",
+    username: "admin",
+
 });
 
 const apiServer = new ApiServer();

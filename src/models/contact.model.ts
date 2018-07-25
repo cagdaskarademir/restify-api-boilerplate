@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn} from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn} from "typeorm";
 
 @Entity()
 export class ContactModel {
@@ -14,5 +14,4 @@ export class ContactModel {
 
     @Column()
     public emailAddress: string;
-    
 }
