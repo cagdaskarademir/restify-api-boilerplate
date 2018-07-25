@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import { ApiServer } from './server/index';
+import { ApiServer } from './server';
 import { DatabaseProvider } from "./server/database";
 
 DatabaseProvider.configure({

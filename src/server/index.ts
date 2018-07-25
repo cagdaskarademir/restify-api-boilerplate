@@ -1,7 +1,7 @@
 import { HttpServer } from './httpServer';
 import { RequestHandler, Server } from 'restify';
 import * as restify from 'restify';
-import { CONTROLLERS } from '../controller/index';
+import { CONTROLLERS } from '../controller';
 
 export class ApiServer implements HttpServer {
     private restify: Server;
