@@ -1,6 +1,11 @@
 ## Restify server template using Typescript with TypeORM
     - A server project template using typescript inspired by Angular 4.
 
+
+
+[![Build Status](https://travis-ci.org/JojiePalahang/restify-api-boilerplate.svg?branch=master)](https://travis-ci.org/JojiePalahang/restify-api-boilerplate)
+
+
 Software required
 ------
 * NVM (node v7 and up )
